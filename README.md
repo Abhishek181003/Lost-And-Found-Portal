@@ -1,3 +1,16 @@
+# Steps to setup
+1. cd lost-found-portal
+1. npm install
+3. npm install tailwindcss @tailwindcss/vite
+3. npm install lucide-react
+4. npm install react-router-dom
+5. npm install axios
+6. npm install react-hook-form
+7. npm install @headlessui/react
+
+8. npm run dev
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
