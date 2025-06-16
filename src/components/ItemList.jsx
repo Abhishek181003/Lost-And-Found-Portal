@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 const ItemList = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -90,7 +90,7 @@ const ItemList = () => {
     );
 
     const ItemCard = ({ item }) => (
-        <div className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+        <div to={`/item/${item.id}`}  className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
             <div className="relative">
                 <img
                     src={item.image}
@@ -98,8 +98,8 @@ const ItemList = () => {
                     className="w-full h-48 object-cover"
                 />
                 <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold ${item.category === 'Lost'
-                        ? 'bg-red-100 text-red-800'
-                        : 'bg-green-100 text-green-800'
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-green-100 text-green-800'
                     }`}>
                     {item.category}
                 </div>
@@ -123,8 +123,8 @@ const ItemList = () => {
 
                 <div className="flex justify-between items-center">
                     <button className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${item.category === 'Lost'
-                            ? 'bg-red-50 text-red-700 hover:bg-red-100'
-                            : 'bg-green-50 text-green-700 hover:bg-green-100'
+                        ? 'bg-red-50 text-red-700 hover:bg-red-100'
+                        : 'bg-green-50 text-green-700 hover:bg-green-100'
                         }`}>
                         {item.category === 'Lost' ? 'I Found This' : 'This is Mine'}
                     </button>
@@ -138,6 +138,7 @@ const ItemList = () => {
                 </div>
             </div>
         </div>
+
     );
 
     return (

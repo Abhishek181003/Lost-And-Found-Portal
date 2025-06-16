@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 const LostItems = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -72,7 +72,7 @@ const LostItems = () => {
     );
 
     const ItemCard = ({ item }) => (
-        <div className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+        <Link to={`/item/${item.id}`} className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
             <div className="relative">
                 <img
                     src={item.image}
@@ -113,7 +113,7 @@ const LostItems = () => {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 
     return (
