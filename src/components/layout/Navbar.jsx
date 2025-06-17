@@ -39,6 +39,7 @@ const Navbar = () => {
                             {[
                                 { path: '/', label: 'Home' },
                                 { path: '/about', label: 'About' },
+                                { path: '/all-items', label: 'All Items' },
                                 { path: '/lost-items', label: 'Lost Items', color: 'red' },
                                 { path: '/found-items', label: 'Found Items', color: 'green' },
                                 { path: '/contact', label: 'Contact' },

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Custom styles and animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -17,7 +16,6 @@
   }
 }
 
-/* Custom utility classes for animations */
 .animate-in {
   animation-fill-mode: both;
 }

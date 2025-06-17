@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-const ItemList = () => {
+const LostItems = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Mock data for demonstration
-    const mockItems = [
+    // Mock data for lost items only
+    const mockLostItems = [
         {
             id: 1,
             name: "iPhone 13 Pro",
@@ -14,15 +14,6 @@ const ItemList = () => {
             image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop",
             timestamp: "2 hours ago",
             location: "University Library"
-        },
-        {
-            id: 2,
-            name: "Blue Backpack",
-            category: "Found",
-            description: "Found a blue Nike backpack with some textbooks inside. Contact to claim.",
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop",
-            timestamp: "5 hours ago",
-            location: "Campus Cafeteria"
         },
         {
             id: 3,
@@ -34,15 +25,6 @@ const ItemList = () => {
             location: "Main Parking Lot"
         },
         {
-            id: 4,
-            name: "Silver Watch",
-            category: "Found",
-            description: "Found a silver watch near the gym entrance. Appears to be a Casio brand.",
-            image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=200&fit=crop",
-            timestamp: "2 days ago",
-            location: "Gym Entrance"
-        },
-        {
             id: 5,
             name: "Black Wallet",
             category: "Lost",
@@ -52,29 +34,29 @@ const ItemList = () => {
             location: "Student Center"
         },
         {
-            id: 6,
-            name: "Textbook Set",
-            category: "Found",
-            description: "Found a set of engineering textbooks left on a bench. Contact to claim.",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop",
-            timestamp: "4 days ago",
-            location: "Engineering Building"
+            id: 7,
+            name: "Laptop Charger",
+            category: "Lost",
+            description: "Lost my MacBook charger in the computer lab. White cable with USB-C connector.",
+            image: "https://images.unsplash.com/photo-1564694202779-bc908c327862?w=300&h=200&fit=crop",
+            timestamp: "5 days ago",
+            location: "Computer Lab"
         }
     ];
 
     // Simulate loading data
     useEffect(() => {
         const timer = setTimeout(() => {
-            setItems(mockItems);
+            setItems(mockLostItems);
             setLoading(false);
-        }, 1500);
+        }, 1000);
 
         return () => clearTimeout(timer);
     }, []);
 
     const LoadingSkeleton = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, index) => (
+            {[...Array(4)].map((_, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-md p-6 animate-pulse">
                     <div className="w-full h-48 bg-gray-300 rounded-lg mb-4"></div>
                     <div className="h-4 bg-gray-300 rounded mb-2"></div>
@@ -90,17 +72,14 @@ const ItemList = () => {
     );
 
     const ItemCard = ({ item }) => (
-        <div to={`/item/${item.id}`}  className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+        <Link to={`/item/${item.id}`} className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
             <div className="relative">
                 <img
                     src={item.image}
                     alt={item.name}
                     className="w-full h-48 object-cover"
                 />
-                <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold ${item.category === 'Lost'
-                    ? 'bg-red-100 text-red-800'
-                    : 'bg-green-100 text-green-800'
-                    }`}>
+                <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
                     {item.category}
                 </div>
             </div>
@@ -122,11 +101,8 @@ const ItemList = () => {
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <button className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${item.category === 'Lost'
-                        ? 'bg-red-50 text-red-700 hover:bg-red-100'
-                        : 'bg-green-50 text-green-700 hover:bg-green-100'
-                        }`}>
-                        {item.category === 'Lost' ? 'I Found This' : 'This is Mine'}
+                    <button className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-red-50 text-red-700 hover:bg-red-100">
+                        I Found This
                     </button>
 
                     <span className="text-xs text-gray-500 flex items-center">
@@ -137,8 +113,7 @@ const ItemList = () => {
                     </span>
                 </div>
             </div>
-        </div>
-
+        </Link>
     );
 
     return (
@@ -147,10 +122,10 @@ const ItemList = () => {
                 {/* Header */}
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                        Lost & Found Items
+                        Lost Items
                     </h1>
                     <p className="text-gray-600">
-                        Browse through items that have been lost or found. Click on any item to view more details.
+                        Browse through items that people have lost. Found something? Click "I Found This" to help reunite items with their owners.
                     </p>
                 </div>
 
@@ -158,21 +133,21 @@ const ItemList = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div className="bg-white rounded-lg shadow-sm p-6 text-center">
                         <div className="text-2xl font-bold text-red-600 mb-1">
-                            {items.filter(item => item.category === 'Lost').length}
+                            {items.length}
                         </div>
                         <div className="text-gray-600 text-sm">Lost Items</div>
                     </div>
                     <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-                        <div className="text-2xl font-bold text-green-600 mb-1">
-                            {items.filter(item => item.category === 'Found').length}
+                        <div className="text-2xl font-bold text-blue-600 mb-1">
+                            {items.filter(item => item.timestamp.includes('hour')).length}
                         </div>
-                        <div className="text-gray-600 text-sm">Found Items</div>
+                        <div className="text-gray-600 text-sm">Recent (Today)</div>
                     </div>
                     <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-                        <div className="text-2xl font-bold text-blue-600 mb-1">
-                            {items.length}
+                        <div className="text-2xl font-bold text-orange-600 mb-1">
+                            {items.filter(item => item.description.toLowerCase().includes('reward')).length}
                         </div>
-                        <div className="text-gray-600 text-sm">Total Items</div>
+                        <div className="text-gray-600 text-sm">With Reward</div>
                     </div>
                 </div>
 
@@ -193,17 +168,8 @@ const ItemList = () => {
                         <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <h3 className="mt-2 text-sm font-medium text-gray-900">No items found</h3>
-                        <p className="mt-1 text-sm text-gray-500">Get started by adding a lost or found item.</p>
-                    </div>
-                )}
-
-                {/* Load More Button */}
-                {!loading && items.length > 0 && (
-                    <div className="text-center mt-12">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200">
-                            Load More Items
-                        </button>
+                        <h3 className="mt-2 text-sm font-medium text-gray-900">No lost items found</h3>
+                        <p className="mt-1 text-sm text-gray-500">Check back later or report a lost item.</p>
                     </div>
                 )}
             </div>
@@ -211,4 +177,4 @@ const ItemList = () => {
     );
 };
 
-export default ItemList;
+export default LostItems;

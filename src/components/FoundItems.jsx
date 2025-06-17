@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 const FoundItems = () => {
@@ -72,7 +73,8 @@ const FoundItems = () => {
     );
 
     const ItemCard = ({ item }) => (
-        <div className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+        <Link to={`/item/${item.id}`} className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+
             <div className="relative">
                 <img
                     src={item.image}
@@ -113,7 +115,7 @@ const FoundItems = () => {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 
     return (
