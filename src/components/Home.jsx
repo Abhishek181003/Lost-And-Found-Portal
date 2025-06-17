@@ -67,7 +67,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-purple-500">
+                    <Link to="/add-item" className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-purple-500">
                         <div className="flex items-center mb-4">
                             <div className="bg-purple-100 p-3 rounded-full mr-4">
                                 <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -78,7 +78,7 @@ const Home = () => {
                         </div>
                         <p className="text-gray-600 mb-4">Report a lost or found item to help others in the community.</p>
                         <div className="text-purple-600 font-medium">Report Item →</div>
-                    </div>
+                    </Link>
                 </div>
 
                 {/* Recent Activity */}
