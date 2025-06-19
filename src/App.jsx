@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Sidebar from './components/layout/Sidebar';
 import Home from './components/Home';
@@ -7,7 +7,11 @@ import LostItems from './components/LostItems';
 import FoundItems from './components/FoundItems';
 import ItemList from './components/ItemList';
 import ItemDetail from './components/ItemDetail';
+import AddItemForm from './components/AddItemForm';
 import './App.css';
+import Footer from './components/Footer';
+import About from './components/About';
+import Contact  from './components/Contact';
 
 function App() {
   return (
@@ -25,12 +29,15 @@ function App() {
               <Route path="/lost-items" element={<LostItems />} />
               <Route path="/found-items" element={<FoundItems />} />
               <Route path="/all-items" element={<ItemList />} />
-              <Route path="/about" element={<div className="p-8"><h1 className="text-3xl font-bold">About Page</h1><p className="mt-4 text-gray-600">About page content will go here.</p></div>} />
-              <Route path="/contact" element={<div className="p-8"><h1 className="text-3xl font-bold">Contact Page</h1><p className="mt-4 text-gray-600">Contact page content will go here.</p></div>} />
+              <Route path="/about" element={<About/>} />
+              <Route path="/contact" element={<Contact/>} />
               <Route path="/item/:id" element={<ItemDetail />} />
+              <Route path="/add-item" element={<AddItemForm />} />
             </Routes>
           </main>
         </div>
+
+        <Footer/>
       </div>
   );
 }
