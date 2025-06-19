@@ -1,7 +1,4 @@
 import React from 'react';
-
-import { Routes, Route } from 'react-router-dom';
-
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 
@@ -21,6 +18,8 @@ import './App.css';
 import Footer from './components/Footer';
 import About from './components/About';
 import Contact  from './components/Contact';
+
+
 
 function App() {
 
@@ -56,9 +55,6 @@ function App() {
               <Route path="/about" element={<About/>} />
               <Route path="/contact" element={<Contact/>} />
               <Route path="/item/:id" element={<ItemDetail />} />
-
-              <Route path="/add-item" element={<AddItemForm />} />
-
               <Route path="/add-item" element={<AddItemForm />} />
             </Routes>
 

@@ -216,7 +216,7 @@ const AddItemForm = () => {
                 ${formData.category === 'lost'
                                     ? 'border-red-500 bg-red-50 text-red-700'
                                     : 'border-gray-200 hover:border-gray-300'}
-              `}>
+            `}>
                                 <input
                                     type="radio"
                                     name="category"
@@ -237,7 +237,7 @@ const AddItemForm = () => {
                 ${formData.category === 'found'
                                     ? 'border-green-500 bg-green-50 text-green-700'
                                     : 'border-gray-200 hover:border-gray-300'}
-              `}>
+            `}>
                                 <input
                                     type="radio"
                                     name="category"
