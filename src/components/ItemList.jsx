@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 const ItemList = () => {
     const [items, setItems] = useState([]);
@@ -29,7 +29,7 @@ const ItemList = () => {
             name: "Car Keys",
             category: "Lost",
             description: "Lost Honda car keys with a red keychain. Last seen in the parking lot.",
-            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1576153645383-e03c25dafed5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "1 day ago",
             location: "Main Parking Lot"
         },
@@ -38,7 +38,7 @@ const ItemList = () => {
             name: "Silver Watch",
             category: "Found",
             description: "Found a silver watch near the gym entrance. Appears to be a Casio brand.",
-            image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1657235895095-e043ce2ebf41?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "2 days ago",
             location: "Gym Entrance"
         },
@@ -47,7 +47,7 @@ const ItemList = () => {
             name: "Black Wallet",
             category: "Lost",
             description: "Lost my black leather wallet containing ID and credit cards. Reward offered.",
-            image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=200&fit=crop",
+            image: "https://plus.unsplash.com/premium_photo-1678823283114-0cff3d5028a3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "3 days ago",
             location: "Student Center"
         },
@@ -56,7 +56,7 @@ const ItemList = () => {
             name: "Textbook Set",
             category: "Found",
             description: "Found a set of engineering textbooks left on a bench. Contact to claim.",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1585521551675-e6e4e4d441f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "4 days ago",
             location: "Engineering Building"
         }
@@ -90,7 +90,7 @@ const ItemList = () => {
     );
 
     const ItemCard = ({ item }) => (
-        <div to={`/item/${item.id}`}  className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
+        <Link to={`/item/${item.id}`}  className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer overflow-hidden">
             <div className="relative">
                 <img
                     src={item.image}
@@ -137,7 +137,7 @@ const ItemList = () => {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
 
     );
 

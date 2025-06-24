@@ -21,7 +21,7 @@ const FoundItems = () => {
             name: "Silver Watch",
             category: "Found",
             description: "Found a silver watch near the gym entrance. Appears to be a Casio brand.",
-            image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1657235895095-e043ce2ebf41?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "2 days ago",
             location: "Gym Entrance"
         },
@@ -30,7 +30,7 @@ const FoundItems = () => {
             name: "Textbook Set",
             category: "Found",
             description: "Found a set of engineering textbooks left on a bench. Contact to claim.",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1585521551675-e6e4e4d441f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "4 days ago",
             location: "Engineering Building"
         },
@@ -39,7 +39,7 @@ const FoundItems = () => {
             name: "Red Umbrella",
             category: "Found",
             description: "Found a red umbrella at the bus stop. Still in good condition.",
-            image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=300&h=200&fit=crop",
+            image: "https://images.unsplash.com/photo-1688122997774-64097f82c71d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             timestamp: "1 week ago",
             location: "Bus Stop"
         }

@@ -13,12 +13,12 @@ const ItemDetail = () => {
     // Mock data - in a real app, this would come from an API
     const mockItems = {
         '1': {
-            id: '1',
-            name: 'Black Leather Wallet',
-            category: 'Lost',
-            description: 'Black leather wallet with multiple card slots. Contains important documents and cards. Lost near the university campus around the library area. Very important to me as it contains my ID and credit cards.',
+            id: 1,
+            name: "iPhone 13 Pro",
+            category: "Lost",
+            description: "Black iPhone 13 Pro lost near the university library. Has a cracked screen protector.",
             images: [
-                'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop',
+                'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop',
                 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=300&fit=crop',
                 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop'
             ],

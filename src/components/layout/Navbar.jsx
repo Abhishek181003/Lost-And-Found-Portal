@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Menu, X, User, LogIn, UserCircle } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
     const location = useLocation();
@@ -73,13 +73,13 @@ const Navbar = () => {
 
                             {isUserDropdownOpen && (
                                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-10 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <Link
-                                        to="/login"
+                                    <button
+                                        onClick={onLogout}
                                         className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                                     >
                                         <LogIn className="w-4 h-4 mr-3" />
-                                        Login
-                                    </Link>
+                                        Logout
+                                    </button>
                                     <Link
                                         to="/profile"
                                         className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
@@ -137,13 +137,13 @@ const Navbar = () => {
 
                             {/* Mobile User Actions */}
                             <div className="border-t border-gray-200 pt-3 mt-3">
-                                <Link
-                                    to="/login"
+                                <button
+                                    onClick={onLogout}
                                     className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
                                 >
                                     <LogIn className="w-5 h-5 mr-3" />
-                                    Login
-                                </Link>
+                                    Logout
+                                </button>
                                 <Link
                                     to="/profile"
                                     className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
